@@ -1,13 +1,11 @@
-
+import { forwardButton, backButton } from "./events.js";
 const images = document.querySelectorAll(".image");
-const forwardButton = document.getElementById("forward-btn");
-const backButton = document.getElementById("back-btn");
 
 let counterImage = 0;
 
-currentImage = images.length.classList = "active";
+let currentImage = (images.classList = "active");
 
-forwardButton.addEventListener("click", () => {
+const advanceImage = () => {
     if (currentImage) {
         images[counterImage].classList.remove("active");
         counterImage++;
@@ -19,9 +17,9 @@ forwardButton.addEventListener("click", () => {
     if (counterImage === images.length - 1) {
         forwardButton.classList.add("disable");
     }
-});
+};
 
-backButton.addEventListener("click", () => {
+const backImage = () => {
     if (currentImage) {
         images[counterImage].classList.remove("active");
         counterImage--;
@@ -34,4 +32,6 @@ backButton.addEventListener("click", () => {
         backButton.classList.add("disable");
         forwardButton.classList.add("enable");
     }
-});
+};
+
+export { advanceImage, backImage };
